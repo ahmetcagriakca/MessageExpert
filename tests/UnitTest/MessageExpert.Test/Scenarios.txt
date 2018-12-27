@@ -1,0 +1,24 @@
+﻿Kullanım Senaryoları
+1) Kullanıclar hesap oluşturabilmeli ve login olabilmelidir.
+2) Kullanıcılar birbirlerinin kullanıcı adını bildiği sürece mesajlaşabilirler.
+3) Kullanıcılar geçmişe dönük mesajlaşmalarına erişebilirler
+4) Bir kullanıcı mesaj almak istemidiği diğer kullanıcıyı bloklayabilir
+5) Aktivite logları(login, invalid login vb.) kullanıcılar tarafından görülebilir
+6) Kritik hataların hassas detayları kullanıcılara iletilmemeli ve tüm hatalar kayıt altına alınmalıdır.
+
+1) Kullanıclar hesap oluşturabilmeli ve login olabilmelidir.
+   1) Kullanıcı oluşturma
+   2) Kullanıcı bilgileri ile login
+   3) Hatalı user bilgileri kontrolleri
+
+2) Kullanıcılar birbirlerinin kullanıcı adını bildiği sürece mesajlaşabilirler.
+	1) Mesaj gönderme 
+	2) Var olmayan kullanıcıya mesaj gönderme	  
+3) Kullanıcılar geçmişe dönük mesajlaşmalarına erişebilirler
+	1) Kullanıcının gelen ve giden mesajlarının kontrolü 	
+4) Bir kullanıcı mesaj almak istemidiği diğer kullanıcıyı bloklayabilir
+   1) Kullanıcı blocklama	
+   2) Bloklanan kullanıcıya mesaj gönderme	 
+5) Aktivite logları(login, invalid login vb.) kullanıcılar tarafından görülebilir
+   1) Login ve invalid login deneyerek aktivite loglarının getirilmesinin sağlanması.
+6) Kritik hataların hassas detayları kullanıcılara iletilmemeli ve tüm hatalar kayıt altına alınmalıdır. 
