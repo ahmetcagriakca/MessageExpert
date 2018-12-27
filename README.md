@@ -12,5 +12,3 @@ docker run -p 90:80 mexpert/api
 
 remove all docker containers
 docker rm $( docker ps -q) -f
-
-C:\Projects\Git\MessageExpert>  docker run -p 92:80 -v $(pwd)/environments/appsettings.json:/app/appsettings.json mexpert/api
