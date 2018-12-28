@@ -22,6 +22,7 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Serialization;
 using Swashbuckle.AspNetCore.Swagger;
 using MessageExpert.Core;
+using MessageExpert.Data.Extensions;
 
 namespace MessageExpert.Api
 {
@@ -38,7 +39,8 @@ namespace MessageExpert.Api
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddSwaggerGen(options => { options.SwaggerDoc("v1", new Info { Title = "Message Manager API", Version = "v1" }); });
-			services.AddDbContext<MessageExpertDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));//options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
+			//services.AddDbContext<MessageExpertDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));//options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
+		    services.UseEntityFramework<MessageExpertDbContext>(Configuration.GetDatabaseConfig("DatabaseConfig"));
 
             services.AddMvc(x =>
             {
