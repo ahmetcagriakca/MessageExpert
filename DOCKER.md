@@ -44,3 +44,17 @@ docker volume create -d local -o type=bind -o device=c:\environments --name test
 docker run -p 92:80 -v test1:/app mexpert/api
 docker run -p 92:80 -v test2:/app mexpert/api
 docker run -p 92:80 -v test3:/app mexpert/api
+
+# Working with docker compose
+
+### docker compose up 
+
+docker-compose up --build
+
+### docker compose build service 
+
+docker-compose build core-api
+
+### docker compose restart service
+
+docker-compose restart core-api
