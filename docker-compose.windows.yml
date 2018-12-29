@@ -21,7 +21,7 @@ services:
     ports:
       - '83:80'
     volumes:
-      - /environments/appsettings.Docker.json:/app/appsettings.Docker.json
+      - c:/environments/appsettings.Docker.json:/app/appsettings.Docker.json
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
     depends_on:
