@@ -8,7 +8,7 @@ services:
       - POSTGRES_PASSWORD=test123
       - POSTGRES_DB=MessageExpert.Services.ApiDb
     ports:
-      - "5433:5432"
+      - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     restart: always
@@ -19,7 +19,7 @@ services:
       dockerfile: MessageExpert.Api/Dockerfile
     restart: always
     ports:
-      - '83:80'
+      - '80:80'
     volumes:
       - /environments/appsettings.Docker.json:/app/appsettings.Docker.json
     environment:

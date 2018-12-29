@@ -22,21 +22,58 @@ dotnet ef migrations add [migration_name] --project src/Services/API/MessageExpe
 #### Install git
 
 sudo apt-get update
+
 sudo apt-get upgrade
+
 sudo apt-get install git
 
 #### Install Docker
 
 sudo apt install docker.io
+
 sudo apt install docker-compose
+
+
+### create environments folder
+
+sudo mkdir /environments
+
+cd MessageExpert
+
+### copy docker settings to environments
+
+sudo cp src/Services/API/MessageExpert.Api/appsettings.Docker.json /environments
+
+### editting file
+
+nano docker-compose.yml
+
+### after at all running docker on linux
+
+docker-compose up --build
+
+### firewall add port
+
+ufw allow 83
+
+ufw allow 5433
+
+#Git
 
 ### clone to project
 
 git clone https://github.com/ahmetcagriakca/MessageExpert.git
 
-sudo mkdir /environments
-cd MessageExpert
-sudo cp src/Services/API/MessageExpert.Api/appsettings.json /environments
+### reset branch to head
 
-nano for editting text
-nano docker-compose.yml
+> clean local change
+
+git clean -fd
+
+> fetch all change
+
+git fetch --all
+
+> reset local to last change and remove local commit
+
+git reset --hard origin/master
