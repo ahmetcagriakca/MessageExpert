@@ -1,6 +1,18 @@
 version: "3"
 
 services:
+  postgre-db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=test123
+      - POSTGRES_DB=MessageExpert.Services.ApiDb
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: always
+
   core-api:
     build: 
       context: src/Services/API/
@@ -9,6 +21,12 @@ services:
     ports:
       - '83:80'
     volumes:
-      - c:/environments/appsettings.json:/app/appsettings.json
+      - c:/environments/appsettings.Docker.json:/app/appsettings.Docker.json
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+    depends_on:
+      - postgre-db
 
-      
+volumes:
+  pgdata:
+    driver: local

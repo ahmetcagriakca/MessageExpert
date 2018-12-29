@@ -58,10 +58,10 @@ namespace MessageExpert.Data.Configuration
                 databaseConfig.ConnectionString);
 
             //optionsBuilder.UseSqlServer(databaseConfig.ConnectionString);
-            if (databaseConfig.Provider == "PostgreSql")
+            if (databaseConfig.Provider.ToUpper() == "postgre".ToUpper())
                 optionsBuilder.UseNpgsql<TContext>(databaseConfig.ConnectionString);
 
-            if (databaseConfig.Provider == "MSSql" || databaseConfig.Provider == "SqlExpress")
+            if (databaseConfig.Provider.ToUpper() == "mssql".ToUpper())
                 optionsBuilder.UseSqlServer(databaseConfig.ConnectionString);
             DbContextOptions<TContext> options = optionsBuilder.Options;
             return CreateNewInstance(options);

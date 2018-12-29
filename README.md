@@ -11,3 +11,8 @@ Database configuration managed on DatabaseConfig, you can choose database provid
 
 update database command
 dotnet ef database update --project src/Services/API/MessageExpert.Data/MessageExpert.Data.csproj --startup-project src/Services/API/MessageExpert.Api/MessageExpert.Api.csproj
+
+add migrations
+
+dotnet ef migrations add [migration_name] --project src/Services/API/MessageExpert.Data/MessageExpert.Data.csproj --startup-project src/Services/API/MessageExpert.Api/MessageExpert.Api.csproj
+

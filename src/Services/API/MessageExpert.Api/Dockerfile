@@ -7,10 +7,13 @@ EXPOSE 80
 FROM microsoft/dotnet:2.2-sdk AS build
 WORKDIR /src
 COPY . .
+#Project restore
 RUN dotnet restore MessageExpert.Api/MessageExpert.Api.csproj
 WORKDIR /src/MessageExpert.Api
+#Build before release
 RUN dotnet build --no-restore -c Release -o /app
 
+WORKDIR /src/MessageExpert.Api
 FROM build AS publish
 RUN dotnet publish --no-restore -c Release -o /app
 

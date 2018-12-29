@@ -3,34 +3,32 @@ using System;
 using MessageExpert.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace MessageExpert.Data.Migrations
 {
     [DbContext(typeof(MessageExpertDbContext))]
-    [Migration("20180815192853_InitialCreate")]
+    [Migration("20181228234522_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
+                .HasAnnotation("ProductVersion", "2.2.0-rtm-35687")
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("MessageExpert.Data.Models.Accounts.BlockedUser", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .ValueGeneratedOnAdd();
 
                     b.Property<int?>("BlockedId");
 
-                    b.Property<int?>("UserId")
-                        .IsRequired();
+                    b.Property<int>("UserId");
 
                     b.HasKey("Id");
 
@@ -44,8 +42,7 @@ namespace MessageExpert.Data.Migrations
             modelBuilder.Entity("MessageExpert.Data.Models.Accounts.User", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Password")
                         .IsRequired();
@@ -65,15 +62,13 @@ namespace MessageExpert.Data.Migrations
             modelBuilder.Entity("MessageExpert.Data.Models.Accounts.UserActivityLog", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("LogDateTime");
 
                     b.Property<bool>("LoginIsSuccess");
 
-                    b.Property<int?>("UserId")
-                        .IsRequired();
+                    b.Property<int>("UserId");
 
                     b.HasKey("Id");
 
@@ -85,20 +80,17 @@ namespace MessageExpert.Data.Migrations
             modelBuilder.Entity("MessageExpert.Data.Models.Messaging.Message", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasMaxLength(200);
 
-                    b.Property<int?>("FromId")
-                        .IsRequired();
+                    b.Property<int>("FromId");
 
                     b.Property<DateTime>("SendDateTime");
 
-                    b.Property<int?>("ToId")
-                        .IsRequired();
+                    b.Property<int>("ToId");
 
                     b.HasKey("Id");
 

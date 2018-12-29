@@ -45,7 +45,15 @@ docker run -p 92:80 -v test1:/app mexpert/api
 docker run -p 92:80 -v test2:/app mexpert/api
 docker run -p 92:80 -v test3:/app mexpert/api
 
+docker volume copy to local
+docker cp $CID:/68a1fb5f0fe2 ./
+docker cp $CID:/pgdata ./
+
 # Working with docker compose
+
+### docker compose build
+
+docker-compose build
 
 ### docker compose up 
 
