@@ -38,11 +38,19 @@ sudo apt install docker-compose
 
 sudo mkdir /environments
 
+sudo mkdir /environments/test
+
+sudo mkdir /environments/prod
+
 cd MessageExpert
 
 ### copy docker settings to environments
 
 sudo cp src/Services/API/MessageExpert.Api/appsettings.Docker.json /environments
+
+sudo cp src/Services/API/MessageExpert.Api/appsettings.json /environments/test
+
+sudo cp src/Services/API/MessageExpert.Api/appsettings.Docker.json /environments/prod
 
 ### editting file
 
