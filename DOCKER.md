@@ -1,8 +1,13 @@
 
 # Docker
+
+## Docker Compose 
+
+Docker compose configuration seperated for environment like test, staging or prod
+
 ## Api docker up 
 
-### retrieving content from  parent directory
+### retrieving context from api parent directory
 
 docker build -f src\Services\API\MessageExpert.Api\Dockerfile src\Services\API\.
 

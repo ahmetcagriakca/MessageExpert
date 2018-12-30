@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  postgre-db:
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=test1231
+      - POSTGRES_DB=MessageExpert.Services.Api.ProdDb
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  core-api:
+    ports:
+      - '81:80'
+    volumes:
+      - c:/environments/prod/appsettings.json:/app/appsettings.json
+
+volumes:
+  pgdata:
+    driver: local
