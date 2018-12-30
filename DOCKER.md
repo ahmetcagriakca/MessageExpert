@@ -71,3 +71,9 @@ docker-compose build core-api
 ### docker compose restart service
 
 docker-compose restart core-api
+
+### docker compose up with environment
+
+docker-compose -f .\docker-compose.prod.yml -f .\docker-compose.yml -p prod up  -d  --build
+
+docker-compose -f .\docker-compose.test.yml -f .\docker-compose.yml -p test up  -d  --build
