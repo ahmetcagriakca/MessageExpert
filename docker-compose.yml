@@ -3,12 +3,10 @@ version: "3"
 services:
   postgre-db:
     image: postgres
-    restart: always
 
   core-api:
     build: 
       context: src/Services/API/
       dockerfile: MessageExpert.Api/Dockerfile
-    restart: always
     depends_on:
       - postgre-db
