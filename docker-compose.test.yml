@@ -15,7 +15,7 @@ services:
     ports:
       - '81:80'
     volumes:
-      - c:/environments/test/appsettings.json:/app/appsettings.json
+      - /environments/test/appsettings.json:/app/appsettings.json
 
 volumes:
   pgdata:

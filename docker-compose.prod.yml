@@ -16,7 +16,7 @@ services:
     ports:
       - '82:80'
     volumes:
-      - c:/environments/prod/appsettings.json:/app/appsettings.json
+      - /environments/prod/appsettings.json:/app/appsettings.json
     restart: always
 
 volumes:
