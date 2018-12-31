@@ -11,6 +11,8 @@ Database configuration managed on DatabaseConfig, you can choose database provid
 
 #### update database command
 
+> set environment before update database
+$env:DATABASE_CONNECTION_STRING='User ID=postgres;Password=test1234;Host=localhost;Port=5433;Database=MessageExpert.Services.Api.TestDb;Pooling=true;'
 dotnet ef database update --project src/Services/API/MessageExpert.Data/MessageExpert.Data.csproj --startup-project src/Services/API/MessageExpert.Api/MessageExpert.Api.csproj
 
 ### add migrations
@@ -33,6 +35,19 @@ sudo apt install docker.io
 
 sudo apt install docker-compose
 
+### Install Dotnet 
+
+wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+
+sudo dpkg -i packages-microsoft-prod.deb
+
+sudo add-apt-repository universe
+
+sudo apt-get install apt-transport-https
+
+sudo apt-get update
+
+sudo apt-get install dotnet-sdk-2.2
 
 ### create environments folder
 
@@ -62,9 +77,21 @@ docker-compose up --build
 
 ### firewall add port
 
-ufw allow 83
+connect to gcloud linux
 
-ufw allow 5433
+gcloud compute --project "PROJECT_NAME" ssh --zone "us-east1-b" "instance-1"
+
+gcloud allow port 
+
+gcloud compute --project "PROJECT_NAME" firewall-rules create  test-api-rule --allow tcp:81
+
+gcloud compute --project "PROJECT_NAME" firewall-rules create  prod-api-rule --allow tcp:82
+
+allow firewall 
+
+ufw allow 81
+
+ufw allow 82
 
 #Git
 

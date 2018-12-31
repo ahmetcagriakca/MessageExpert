@@ -40,6 +40,10 @@ namespace MessageExpert.Api
 		{
 			services.AddSwaggerGen(options => { options.SwaggerDoc("v1", new Info { Title = "Message Manager API", Version = "v1" }); });
 			//services.AddDbContext<MessageExpertDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));//options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
+            //Getting sections
+            Console.WriteLine(Configuration.GetDatabaseConfig("DatabaseConfig").ConnectionString);
+            //Getting environments
+            //Console.WriteLine(Configuration["TEST_ENV"]);
 		    services.UseEntityFramework<MessageExpertDbContext>(Configuration.GetDatabaseConfig("DatabaseConfig"));
 
             services.AddMvc(x =>

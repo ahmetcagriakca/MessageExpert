@@ -15,7 +15,14 @@ namespace MessageExpert.Data.Extensions
             var section = configuration.GetSection(name);
             var config = new DatabaseConfig();
             section.Bind(config);
-
+            if (configuration["DATABASE_PROVIDER"] != null)
+            {
+                config.Provider = configuration["DATABASE_PROVIDER"];
+            }
+            if (configuration["DATABASE_CONNECTION_STRING"] != null)
+            {
+                config.ConnectionString = configuration["DATABASE_CONNECTION_STRING"];
+            }
             return config;
         }
 
