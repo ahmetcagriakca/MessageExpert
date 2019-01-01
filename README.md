@@ -12,8 +12,26 @@ Database configuration managed on DatabaseConfig, you can choose database provid
 #### update database command
 
 > set environment before update database
+
+> windows
+
 $env:DATABASE_CONNECTION_STRING='User ID=postgres;Password=test1234;Host=localhost;Port=5433;Database=MessageExpert.Services.Api.TestDb;Pooling=true;'
+
+$env:DATABASE_CONNECTION_STRING='User ID=postgres;Password=test1231;Host=localhost;Port=5434;Database=MessageExpert.Services.Api.ProdDb;Pooling=true;'
+
+> linux
+
+export set for global 
+
+export DATABASE_CONNECTION_STRING='User ID=postgres;Password=test1234;Host=localhost;Port=5433;Database=MessageExpert.Services.Api.TestDb;Pooling=true;'
+
+set for this session
+
+DATABASE_CONNECTION_STRING='User ID=postgres;Password=test1231;Host=localhost;Port=5434;Database=MessageExpert.Services.Api.ProdDb;Pooling=true;' &&
 dotnet ef database update --project src/Services/API/MessageExpert.Data/MessageExpert.Data.csproj --startup-project src/Services/API/MessageExpert.Api/MessageExpert.Api.csproj
+
+remove environment variable
+unset DATABASE_CONNECTION_STRING
 
 ### add migrations
 
