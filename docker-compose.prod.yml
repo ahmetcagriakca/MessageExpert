@@ -4,7 +4,7 @@ services:
   postgre-db:
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=test1231
+      - POSTGRES_PASSWORD=test1234
       - POSTGRES_DB=MessageExpert.Services.Api.ProdDb
     ports:
       - "5434:5432"
